@@ -1,0 +1,23 @@
+pt-BR:
+  activerecord:
+    models:
+      warehouse: Galpão
+      supplier: Fornecedor
+    attributes:
+      warehouse:
+        name: "Nome"
+        code: "Código"
+        description: "Descrição"
+        cep: "CEP"
+        address: "Endereço"
+        city: "Cidade"
+        area: "Área"        
+      supplier:
+        corporate_name: "Nome"
+        brand_name: "Marca"
+        registration_number: "Registro"
+        full_address: "Endereço"
+        city: "Cidade"
+        state: "Estado"
+        email: "E-mail"
+
