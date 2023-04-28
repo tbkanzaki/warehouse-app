@@ -3,10 +3,13 @@ require 'rails_helper'
 describe 'Usuário vê detalhes do fornecedor' do 
   it 'a partir da tela inicial' do
     #Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '4344726000102',
                     full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
 
     #Act
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'
@@ -20,10 +23,13 @@ describe 'Usuário vê detalhes do fornecedor' do
 
   it 'e voltar para tela inicial' do
     #Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '4344726000102',
                     full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
 
     #Act
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'
@@ -35,6 +41,8 @@ describe 'Usuário vê detalhes do fornecedor' do
 
   it 'e vê todos os seus modelos de produtos' do
     #Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     supplier_samsung = Supplier.create!(corporate_name: 'Samsung Eletronic LTDA', brand_name: 'Samsung', 
                                         registration_number: '4344726000102',
                                         full_address: 'Av das Palmas, 100', city: 'Bauru', 
@@ -55,6 +63,7 @@ describe 'Usuário vê detalhes do fornecedor' do
                         sku: 'MICRO-ACME-ABC', supplier: supplier_acme ) 
 
     #Act
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'

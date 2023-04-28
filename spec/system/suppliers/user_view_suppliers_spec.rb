@@ -3,8 +3,10 @@ require 'rails_helper'
 describe 'Usuário visita página de fornecedores' do
   it 'a partir do menu' do
     #Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
 
     #Act
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Fornecedores'
@@ -16,6 +18,8 @@ describe 'Usuário visita página de fornecedores' do
 
   it 'e vê os fornecedores cadastrados' do
     # Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '43447260001-01',
                     full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com.br')
     
@@ -23,6 +27,7 @@ describe 'Usuário visita página de fornecedores' do
                     full_address: 'Torre da Industria, 1', city: 'Teresina', state: 'PI', email: 'vendas@spark.com.br')
 
     # Act
+    login_as(user)
     visit(root_path) 
     click_on 'Fornecedores'
 
@@ -36,8 +41,10 @@ describe 'Usuário visita página de fornecedores' do
 
   it 'e não existem fornecedores cadastrados' do
     # Arrange
-    
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     # Act
+    login_as(user)
     visit(root_path) 
     click_on 'Fornecedores'
 

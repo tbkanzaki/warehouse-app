@@ -3,11 +3,14 @@ require 'rails_helper'
 describe 'Usuário deleta um galpão' do
   it 'com sucesso' do
     # Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     Warehouse.create!(name:'Cuiaba', code: 'CWB', city: 'Cuiabá', area: 10000,
                       address: 'Avenida dos Jacarés, 1000', cep: '56000-000',
                       description: 'Galpão no centro do país')
 
     # Act
+    login_as(user)
     visit root_path
     click_on 'Cuiaba'
     click_on 'Remover'
@@ -21,6 +24,8 @@ describe 'Usuário deleta um galpão' do
 
   it 'e não apaga outros galpões' do
     # Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     first_warehouse = Warehouse.create!(name:'Cuiaba', code: 'CWB', city: 'Cuiabá', area: 10000,
                                         address: 'Avenida dos Jacarés, 1000', cep: '56000-000',
                                         description: 'Galpão no centro do país')
@@ -30,6 +35,7 @@ describe 'Usuário deleta um galpão' do
                                         description: 'Galpão para compras mineiras')
 
     # Act
+    login_as(user)
     visit root_path
     click_on 'Cuiaba'
     click_on 'Remover'

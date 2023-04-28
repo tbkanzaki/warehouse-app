@@ -3,8 +3,10 @@ require 'rails_helper'
 describe 'Usuário visita página de modelos de produtos' do
   it 'a partir do menu' do
     #Arrange
-
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+    
     #Act
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Modelos de Produtos'
@@ -16,6 +18,8 @@ describe 'Usuário visita página de modelos de produtos' do
 
   it 'e vê os modelos de produtos cadastrados' do
     #Arrange
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     supplier = Supplier.create!(corporate_name: 'Samsung Eletronic LTDA', brand_name: 'Samsung', 
                                 registration_number: '4344726000102',
                                 full_address: 'Av das Palmas, 100', city: 'Bauru', 
@@ -28,6 +32,7 @@ describe 'Usuário visita página de modelos de produtos' do
                           sku: 'AIRF-SAMSU-XYZ', supplier: supplier ) 
 
     #Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produto' 
 
@@ -42,8 +47,10 @@ describe 'Usuário visita página de modelos de produtos' do
 
   it 'e não existe modelos de produtos cadastrados' do
     #Arrange
-    
+    user = User.create!(email:'tereza@provedor.com', password:'senha_nova')
+
     #Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produto' 
 

@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-describe 'Usuario se autentica' do
+describe 'Usuario se registra' do
   it 'com sucesso' do
     # Arrange
     
     # Act
     visit root_path
-    click_on 'Entrar'
+    within('nav') do
+      click_on 'Entrar'
+    end
     click_on 'Criar uma conta'
     fill_in 'Nome', with: 'João'
     fill_in 'E-mail', with: 'joao@provedor.com'

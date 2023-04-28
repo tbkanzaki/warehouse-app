@@ -1,5 +1,5 @@
 class ProductModelsController < ApplicationController
-  before_action :set_product_model, only: [:show, :edit, :update]
+  before_action :set_product_model, only: [:show]
 
   def index
     @product_models = ProductModel.all
