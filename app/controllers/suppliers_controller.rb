@@ -6,6 +6,7 @@ class SuppliersController < ApplicationController
   end
 
   def show
+    @product_models = @supplier.product_models
   end
 
   def new

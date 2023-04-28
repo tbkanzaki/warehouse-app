@@ -36,5 +36,24 @@ RSpec.describe ProductModel, type: :model do
         expect(result).to eq false
       end
     end
+
+    it 'false when sku is already in use' do
+      # Arrange
+      supplier_acme =  Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '4344726000102',
+                                        full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', 
+                                        email: 'contato@acme.com')
+
+      product_01 = ProductModel.create!(name: 'Microondas 32L', weight: 5000, width: 400, height: 600, 
+                                        depth: 50, sku: 'MICRO-ACME-ABC', supplier: supplier_acme )
+
+      product_02 = ProductModel.new(name: 'Microondas 26L', weight: 4000, width: 300, height: 500, 
+                                    depth: 40, sku: 'MICRO-ACME-ABC', supplier: supplier_acme )
+
+      # Act
+      result = product_02.valid?
+
+      # Assert
+      expect(result).to eq false
+    end
   end
 end
