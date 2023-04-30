@@ -13,9 +13,9 @@ pt-BR:
         city: "Cidade"
         area: "Área"        
       supplier:
-        corporate_name: "Nome"
-        brand_name: "Marca"
-        registration_number: "Registro"
+        corporate_name: "Nome Fantasia"
+        brand_name: "Razão Social"
+        registration_number: "CNPJ"
         full_address: "Endereço"
         city: "Cidade"
         state: "Estado"

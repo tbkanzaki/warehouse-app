@@ -21,6 +21,7 @@ describe 'Usuario visita tela inicial' do
 
     # Assert (garantias)
     expect(page).to have_content('Galpões & Estoque')
+    expect(page).to have_link('Galpões & Estoque', href: root_path)
   end
 
   it 'e vê os galpões cadastrados' do

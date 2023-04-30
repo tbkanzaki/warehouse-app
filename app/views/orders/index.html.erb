@@ -1,0 +1,11 @@
+<h2>Meus Pedidos</h2>
+<div>
+  <%= link_to 'Novo Pedido', new_order_path %>
+</div>
+<% if @orders.any? %>
+  <% @orders.each do |order| %>
+    <%= render order %>
+  <% end %>
+<% else %>
+  <p>Não existem pedidos cadastrados</p>
+<% end %>

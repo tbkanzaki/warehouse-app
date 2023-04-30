@@ -18,10 +18,10 @@ describe 'Usuario se registra' do
 
     # Assert
     expect(page).to have_content 'Boas vindas! Você realizou seu registro com sucesso.'
-   
     expect(page).to have_content 'joao@provedor.com'
     expect(page).to have_button 'Sair'
     user = User.last
     expect(user.name).to eq 'João'
     end
   end
+  

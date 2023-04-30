@@ -17,9 +17,9 @@ describe 'Usuário edita um fornecedor' do
 
     #Assert
     expect(page).to have_content('Editar Fornecedor')
-    expect(page).to have_field('Nome', with:'ACME LTDA')
-    expect(page).to have_field('Marca', with:'ACME')
-    expect(page).to have_field('Registro', with:'4344726000102')
+    expect(page).to have_field('Nome Fantasia', with:'ACME LTDA')
+    expect(page).to have_field('Razão Social', with:'ACME')
+    expect(page).to have_field('CNPJ', with:'4344726000102')
     expect(page).to have_field('Endereço', with:'Av das Palmas, 100')
     expect(page).to have_field('Cidade', with:'Bauru')
     expect(page).to have_field('Estado', with:'SP')

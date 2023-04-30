@@ -12,9 +12,9 @@ describe 'Usuário cadastra um fornecedor' do
     click_on 'Novo Fornecedor'
 
     #Assert
-    expect(page).to have_field('Nome')
-    expect(page).to have_field('Marca')
-    expect(page).to have_field('Registro')
+    expect(page).to have_field('Nome Fantasia')
+    expect(page).to have_field('Razão Social')
+    expect(page).to have_field('CNPJ')
     expect(page).to have_field('Endereço')
     expect(page).to have_field('Cidade')
     expect(page).to have_field('Estado')
@@ -30,9 +30,9 @@ describe 'Usuário cadastra um fornecedor' do
     visit root_path
     click_on 'Fornecedores'
     click_on 'Novo Fornecedor'
-    fill_in 'Nome', with: 'ACME LTDA'
-    fill_in 'Marca', with: 'ACME'
-    fill_in 'Registro', with: '4344726000102'
+    fill_in 'Nome Fantasia', with: 'ACME LTDA'
+    fill_in 'Razão Social', with: 'ACME'
+    fill_in 'CNPJ', with: '4344726000102'
     fill_in 'Endereço', with: 'Av das Palmas, 100'
     fill_in 'Cidade', with: 'Bauru'
     fill_in 'Estado', with: 'SP'
@@ -55,9 +55,9 @@ describe 'Usuário cadastra um fornecedor' do
     visit root_path
     click_on 'Fornecedores'
     click_on 'Novo Fornecedor'
-    fill_in 'Nome', with: ''
-    fill_in 'Marca', with: ''
-    fill_in 'Registro', with: ''
+    fill_in 'Nome Fantasia', with: ''
+    fill_in 'Razão Social', with: ''
+    fill_in 'CNPJ', with: ''
     fill_in 'Endereço', with: 'Av das Palmas, 100'
     fill_in 'Cidade', with: 'Bauru'
     fill_in 'Estado', with: 'SP'
@@ -66,7 +66,7 @@ describe 'Usuário cadastra um fornecedor' do
 
     #Assert
     expect(page).to have_content 'Não foi possível cadastrar o fornecedor'
-    expect(page).to have_content 'Nome não pode ficar em branco'
-    expect(page).to have_content 'Marca não pode ficar em branco'
+    expect(page).to have_content 'Nome Fantasia não pode ficar em branco'
+    expect(page).to have_content 'Razão Social não pode ficar em branco'
   end
 end
